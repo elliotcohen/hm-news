@@ -1,4 +1,12 @@
 %p
   User: #{@user.name}
 %p
-  Email: #{@user.email if @user.email}
+  Created: #{@user.created_at}
+%p
+  Karma: #{@user.karma}
+%p
+  About: #{@user.about}
+%p
+  = link_to("Submissions", user_news_items_path(@user))
+%p
+  = link_to("Comments", user_comments_path(@user))

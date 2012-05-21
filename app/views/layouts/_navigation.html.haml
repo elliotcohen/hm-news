@@ -1,14 +1,16 @@
-= link_to "Hm News", root_path, :class => 'brand'
+= link_to image_tag("hm-logo-white.png"), root_path, :class => 'brand'
 %ul.nav
   %li
-    = latest_newsitems
+    = link_to "latest", latest_news_items_path
   %li
-   = new_newsitem
+    = link_to "submit", new_news_item_path
+  
+%ul.nav.pull-right
   - if user_signed_in?
     %li
-      Logged in as #{link_to(current_user.name, user_path(current_user))}
+      = link_to(current_user.name, user_path(current_user))
     %li
-      = link_to('Logout', signout_path)
+      = link_to('logout', signout_path)
   - else
     %li
-      = link_to('Login', signin_path)
+      = link_to('login', signin_path)

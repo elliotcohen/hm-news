@@ -1,9 +1,10 @@
 HmNews::Application.routes.draw do
-  root :to => "newsitems#index"
+  root :to => "news_items#index"
   resources :users, :only => [ :show, :edit, :update ] do
     resources :comments, :only => [ :index ]
+    resources :news_items, :only => [ :index ]
   end
-  resources :newsitems, :only => [ :show, :index, :new, :create ] do
+  resources :news_items, :only => [ :show, :index, :new, :create ] do
     resources :comments, :only => [ :index, :new, :create ]
     collection do
       get 'latest'

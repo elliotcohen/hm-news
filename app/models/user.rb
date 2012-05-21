@@ -4,13 +4,14 @@ class User
 
   #relationships
   has_many :comments
-  has_many :newsitems
+  has_many :news_items
 
   #fields
   field :provider, :type => String
   field :uid, :type => String
   field :name, :type => String
   field :email, :type => String
+  field :about, :type => String
   field :karma, :type => Integer
   attr_accessible :provider, :uid, :name, :email
 
@@ -21,6 +22,8 @@ class User
       if auth['info']
          user.name = auth['info']['name'] || ""
          user.email = auth['info']['email'] || ""
+         user.about = ""
+         user.karma = 1
       end
     end
   end

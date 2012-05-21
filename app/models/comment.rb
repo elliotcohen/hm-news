@@ -5,7 +5,7 @@ class Comment
   #relationships
   has_many :comments
   belongs_to :parent, :class_name => :comment
-  belongs_to :newsitem
+  belongs_to :news_item
   belongs_to :user
   
   #fields

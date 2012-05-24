@@ -7,11 +7,11 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
+    @user = User.where(:_id => current_user.id).first
   end
   
   def update
-    @user = User.find(params[:id])
+    @user = User.where(:_id => current_user.id).first
     if @user.update_attributes(params[:user])
       redirect_to @user
     else
@@ -20,7 +20,7 @@ class UsersController < ApplicationController
   end
 
   def show
-      @user = User.find(params[:id])
-    end
-
+    @user = User.find(params[:id])
   end
+
+end

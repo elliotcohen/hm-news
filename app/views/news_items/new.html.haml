@@ -1,0 +1,12 @@
+= simple_form_for @news_item do |f|
+  = f.input :title, :required => true
+  %p
+    = "----------"
+  %br 
+  = f.input :url
+  %p
+    OR
+  = f.label :text
+  = f.text_area :text  
+  %br
+  = f.button :submit

@@ -5,6 +5,7 @@ class User
   #relationships
   has_many :comments
   has_many :news_items
+  has_many :upvotes
 
   #fields
   field :provider, :type => String
@@ -14,7 +15,7 @@ class User
   field :about, :type => String
   field :karma, :type => Integer
   attr_accessible :provider, :uid, :name, :email
-
+  
   def self.create_with_omniauth(auth)
     create! do |user|
       user.provider = auth['provider']
@@ -26,6 +27,10 @@ class User
          user.karma = 1
       end
     end
+  end
+  
+  def upvoted?(news_item)
+    return Upvote.where(:user_id => self.id, :news_item_id => news_item.id).count > 0
   end
 
 end

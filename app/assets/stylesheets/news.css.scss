@@ -2,6 +2,36 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+@mixin rounded-corners {
+  border-radius: 5px;
+  -moz-border-radius: 5px;  
+  -webkit-border-radius: 5px;
+}
+
+div.content {
+  background-color: #fff;
+  box-shadow: 0 0 0 #fff;
+}
+
+div.news_item {
+  background-color: #EEE;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+  padding: 10px;
+  margin-bottom: 20px;
+  @include rounded-corners;
+  img.arrow_up {
+    margin-bottom: 5px;
+  }
+  div.news_item_sub {
+    font-size: 11px;
+    margin-left: 10px;
+  }
+  .grey_text {
+    color: #666;
+  }
+}
+
 form.new_news_item textarea {
   height: 100px;
 }

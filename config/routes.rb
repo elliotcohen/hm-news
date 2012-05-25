@@ -9,6 +9,7 @@ HmNews::Application.routes.draw do
     collection do
       get 'latest'
     end
+    get 'upvote'
   end
   
   resources :comments, :only => [ :show, :new, :create]

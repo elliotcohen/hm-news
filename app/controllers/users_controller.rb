@@ -7,13 +7,12 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.where(:_id => current_user.id).first
+    @user = current_user
   end
   
   def update
-    @user = User.where(:_id => current_user.id).first
-    if @user.update_attributes(params[:user])
-      redirect_to @user
+    if current_user.update_attributes(params[:user])
+      redirect_to current_user
     else
       render :edit
     end

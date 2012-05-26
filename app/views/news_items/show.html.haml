@@ -1,16 +1,29 @@
-%h3
-  - if current_user.upvoted?(@news_item)
-    "upvoted"
-  - else
-    = link_to('click here to upvote', news_item_upvote_path(@news_item))
-  - if !@news_item.url.blank?
-    = link_to(@news_item.title, @news_item.url)
-  - else
-    = @news_item.title
-  - if !@news_item.text.blank?
-    = @news_item.text
-  posted by #{current_user.name} at #{@news_item.created_at.utc.strftime("%H:%M")} on #{@news_item.created_at.strftime("%m/%d/%y")}
+%div.news_item
+  %div
+    - if !current_user.upvoted?(@news_item)
+      = link_to(image_tag("thumbs_up.png", :class => 'arrow_up'), news_item_upvote_path(@news_item))
+    - if !@news_item.url.blank?
+      = link_to(@news_item.title, @news_item.url)
+      %span.grey_text
+        (#{URI.parse(@news_item.url).host})
+    - else
+      = @news_item.title
+    - if !@news_item.text.blank?
+      = @news_item.text
+  %div.news_item_sub.grey_text
+    has #{@news_item.score.to_s + pluralize(@news_item.score, "point")} | posted by #{link_to(current_user.name, current_user)} at #{@news_item.created_at.utc.strftime("%H:%M")} UTC on #{@news_item.created_at.strftime("%m/%d/%y")} | #{link_to("discuss (#{@news_item.comments.count})", news_item_path(@news_item))}
+  
+  %br
+  %br
+  
+  %div.news_item_comments
+    = simple_form_for @comment do |f|
+      = f.hidden_field :news_item, :value => @news_item
+      = f.hidden_field :user, :value => current_user
+      %p
+        = f.text_area :text
+      = f.button :submit, 'Add Comment'
     
-- @news_item.comments.each do |c|
-  = render :partial => 'comments/show.html', :locals => { :comment => c }
+    - @news_item.comments.each do |c|
+      = render :partial => 'comments/show.html', :locals => { :comment => c }
 

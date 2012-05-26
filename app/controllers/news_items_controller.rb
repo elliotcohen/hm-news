@@ -12,6 +12,7 @@ class NewsItemsController < ApplicationController
   
   def show
     @news_item = NewsItem.where(:_id => params[:id]).first
+    @comment = Comment.new
   end
   
   def new

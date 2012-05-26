@@ -5,3 +5,8 @@ $iconWhiteSpritePath: image-path('glyphicons-halflings-white.png');
 body { padding-top: 60px; }
 @import "bootstrap-responsive";
 @import "navigation";
+
+textarea {
+  height: 150px;
+  width: $gridColumnWidth * 8;
+}

@@ -11,4 +11,4 @@
     - if !news_item.text.blank?
       = news_item.text
   %div.news_item_sub.grey_text
-    has #{news_item.score.to_s + pluralize(news_item.score, "point")} | posted by #{link_to(current_user.name, current_user)} at #{news_item.created_at.utc.strftime("%H:%M")} UTC on #{news_item.created_at.strftime("%m/%d/%y")} | #{link_to("discuss (#{news_item.comments.count})", news_item_comments_path(news_item))}
+    has #{news_item.score.to_s + pluralize(news_item.score, "point")} | posted by #{link_to(current_user.name, current_user)} at #{news_item.created_at.utc.strftime("%H:%M")} UTC on #{news_item.created_at.strftime("%m/%d/%y")} | #{link_to("discuss (#{news_item.comments.count})", news_item_path(news_item))}

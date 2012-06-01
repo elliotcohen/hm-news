@@ -4,6 +4,6 @@ class Upvote
   
   #relationships
   belongs_to :user
-  belongs_to :news_item
+  belongs_to :content
   
 end

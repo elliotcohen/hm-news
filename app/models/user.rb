@@ -29,8 +29,8 @@ class User
     end
   end
   
-  def upvoted?(news_item)
-    return Upvote.where(:user_id => self.id, :news_item_id => news_item.id).count > 0
+  def upvoted?(item)
+    return Upvote.where(:user_id => self.id, :item_id => item.id).count > 0
   end
 
 end

@@ -1,1 +1,10 @@
-= comment.user.name + " commented on " + comment.news_item.title + " at " + comment.created_at
+- # if !current_user.upvoted?(comment)
+
+= link_to(image_tag("thumbs_up.png", :class => 'arrow_up'), comment_upvote_url(comment), :remote => true, :update => { :success => "alert('success');", :failure => "alert('there was an error processing the request, please try again later');"}, :html_options => {:id => "testid"})
+
+= comment.user.name + " commented on " + comment.news_item.title + " at " + comment.created_at.strftime("%m/%d/%y") + ":"
+
+%p.indent
+  = comment.text  
+  %br
+  = link_to("reply", comment_new_child_path(comment))

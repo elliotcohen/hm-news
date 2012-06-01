@@ -1,0 +1,6 @@
+- #show the comment and then deal with each of its children
+
+= render :partial => 'comments/show.html', :locals => { :comment => comment }
+
+- comment.comments.each do |c|
+  = render :partial => 'comments/show_iterate_down.html', :locals => { :comment => c }

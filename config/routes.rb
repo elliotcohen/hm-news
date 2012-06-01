@@ -12,7 +12,12 @@ HmNews::Application.routes.draw do
     get 'upvote'
   end
   
-  resources :comments, :only => [ :show, :new, :create]
+  resources :comments, :only => [ :show, :new, :create] do
+    #resources :comments, :as => :child, :only => [ :new => :new_child, :create => :create_child ]
+    get 'new_child'
+    post 'create_child'
+    get 'upvote'
+  end
   
   match '/auth/:provider/callback' => 'sessions#create'
   match '/signin' => 'sessions#new', :as => :signin

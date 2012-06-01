@@ -1,14 +1,6 @@
-class Comment
-  include Mongoid::Document
-  include Mongoid::Timestamps
+class Comment < Content
   
   #relationships
-  has_many :comments
-  belongs_to :parent, :class_name => :comment
-  belongs_to :news_item
-  belongs_to :user
-  
-  #fields
-  field :text, :type => String
-  
+  belongs_to :conversation
+    
 end

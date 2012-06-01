@@ -1,0 +1,6 @@
+Commenting on: #{@comment.user.name}'s comment from #{@comment.created_at} about #{@comment.news_item.title}
+= simple_form_for @child, :url => comment_create_child_url(@comment) do |f|
+  = f.hidden_field :user_id, :value => current_user.id
+  %p
+    = f.text_area :text
+  = f.button :submit, 'Reply'

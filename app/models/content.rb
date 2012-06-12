@@ -10,6 +10,8 @@ class Content
   field :text, :type => String
   field :score, :type => Integer, :default => 0
   
+  validates :user_id, :presence => true
+  
   def upvote(user)
     v = Upvote.new(:user => user, :item => self)
     if v.save

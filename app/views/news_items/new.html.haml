@@ -1,4 +1,5 @@
 = simple_form_for @news_item do |f|
+  = f.hidden_field :user_id, :value => current_user.id
   = f.input :title, :required => true
   %p
     = "----------"

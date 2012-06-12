@@ -1,7 +1,7 @@
 class NewsItem < Content
   
   #relationships
-  has_many :conversations
+  has_many :comments
   
   #fields
   field :title, :type => String

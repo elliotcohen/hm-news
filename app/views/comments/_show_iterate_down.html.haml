@@ -2,5 +2,10 @@
 
 = render :partial => 'comments/show.html', :locals => { :comment => comment }
 
-- comment.comments.each do |c|
-  = render :partial => 'comments/show_iterate_down.html', :locals => { :comment => c }
+- comment.children.each do |c|
+  %div.indent
+    = render :partial => 'comments/show_iterate_down.html', :locals => { :comment => c }
+    
+    
+    
+    

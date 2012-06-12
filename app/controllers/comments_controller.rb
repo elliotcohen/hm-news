@@ -11,7 +11,7 @@ class CommentsController < ApplicationController
   
   def new_child
     @comment = Comment.where(:_id => params[:comment_id]).first
-    @child = @comment.comments.new
+    @child = @comment.children.new
   end
   
   def create
@@ -31,7 +31,7 @@ class CommentsController < ApplicationController
   
   def create_child
     @comment = Comment.where(:_id => params[:comment_id]).first
-    @child = @comment.comments.new(params[:comment])
+    @child = @comment.children.new(params[:comment])
     if @comment.save
       respond_to do |format|
         format.html { redirect_to @comment }

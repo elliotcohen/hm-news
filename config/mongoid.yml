@@ -1,20 +1,13 @@
 development:
-  host: localhost
+  adapter: mongodb
   database: hm_news_development
+  host: localhost
+
 
 test:
-  host: localhost
+  adapter: mongodb
   database: hm_news_test
+  host: localhost
 
-# set these environment variables on your prod server
 production:
-  host: <%= ENV['MONGOID_HOST'] %>
-  port: <%= ENV['MONGOID_PORT'] %>
-  username: <%= ENV['MONGOID_USERNAME'] %>
-  password: <%= ENV['MONGOID_PASSWORD'] %>
-  database: <%= ENV['MONGOID_DATABASE'] %>
-  # slaves:
-  #   - host: slave1.local
-  #     port: 27018
-  #   - host: slave2.local
-  #     port: 27019
+  adapter: mongodb

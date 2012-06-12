@@ -1,13 +1,10 @@
 development:
-  adapter: mongodb
   database: hm_news_development
   host: localhost
 
 
 test:
-  adapter: mongodb
   database: hm_news_test
   host: localhost
 
 production:
-  adapter: mongodb

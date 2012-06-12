@@ -8,3 +8,7 @@ test:
   host: localhost
 
 production:
+  uri: <%= ENV['MONGOHQ_URL'] %>
+  
+    
+
